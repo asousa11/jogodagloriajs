@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <title>Segredos dos Açores</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/bootstrap.min.css"
+          integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <!-- Game CSS -->
+    <link rel="stylesheet" href="css/index.css">
+    <!-- Icons -->
+    <script src="https://kit.fontawesome.com/b927fd3d61.js" crossorigin="anonymous"></script>
+
+    <!-- Script -->
+    <script type="module" src="js/index.js"></script>
+
+    <!-- Bootstrap Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+    <script src="js/bootstrap.bundle.min.js"
+            integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+            crossorigin="anonymous"></script>
+
+    <!-- Sweet Alert-->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="sweetalert2.all.min.js"></script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap"
+          rel="stylesheet">
+
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin="anonymous"></script>
+
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+</head>
+<body>
+<div class="game container-fluid">
+    <div class="row">
+        <div class="col-md-2 text-center">
+            <a href="menu.html"><img alt="logo segredos dos açores" class="game-logo  w-100" src="css/img/Logo.svg"></a>
+            <div class="menu col text-center">
+                <div class="row">
+                    <div class="icon col-md-4">
+                        <button id="dado-button" class="menu-button"><i class="fa fa-dice"></i></button>
+                    </div>
+                    <div class="col-md-8">
+                        <p>Lançar Dado</p>
+                    </div>
+                </div>
+            </div>
+            <div class="menu col text-center">
+                <div class="row">
+                    <div class="icon col-md-4">
+                        <button class="menu-button" id="shop-button"><i class="fas fa-store"></i></button>
+                    </div>
+                    <div class="col-md-8">
+                        <p>Loja</p>
+                    </div>
+                </div>
+            </div>
+            <div class="menu col text-center">
+                <div class="row">
+                    <div class="icon col-md-4 ">
+                        <button class="menu-button" id="def-button"> <i class="fa fa-cog"></i></button>
+                    </div>
+                    <div class="col-md-8">
+                        <p>Definições</p>
+                    </div>
+                </div>
+            </div>
+            <div class=" col text-center" id="music" style="visibility: hidden">
+                <div class="icon">
+                    <audio controls autoplay loop id="music-control" style="width: 100%;">
+                        <source src="mp3/music.mp3">
+                        <script>
+                            let music = document.getElementById("music-control");
+                            music.volume = 0.01;
+                        </script>
+                    </audio>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8 text-center">
+
+            <div class="perguntas">
+                <div id="i" class="row">
+                    <div class="col-md-3">
+                        <img alt="imagem correspondente a pergunta" id="imagem-pergunta" class="imagem" src="css/img/questions/img29.jpg" style="visibility: hidden">
+                    </div>
+                    <div class="pergunta text-center col-md-8">
+                        <form id="frmNivel" action="#" style="display: none">
+                            <div id="areaNivel">
+                            </div>
+                        </form>
+                        <form id="frmPergunta" action="#" style="display: none">
+                            <div id="areaPergunta">
+                            </div>
+                        </form>
+                        <form id="frmChaves" action="#" style="display: none">
+                            <div id="areaChaves">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="loja " id="loja">
+                <div class="container">
+                    <div class="row">
+                        <div class="col text-left">
+                            <h1 id="loja-title">Loja</h1>
+                        </div>
+                        <div class="col text-right">
+                            <button id="close-button"><i class="far fa-times-circle"></i></button>
+                        </div>
+                    </div>
+                    <table class="table text-white">
+                        <thead>
+                        <tr>
+                            <th scope="col">Nº</th>
+                            <th scope="col">Descrição</th>
+                            <th scope="col">€</th>
+                            <th scope="col"></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Chave Azul</td>
+                            <td>5</td>
+                            <td>
+                                <button class="adicionar-button" id="art0"><i class="fas fa-plus-circle"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>Chave Vermelha</td>
+                            <td>5</td>
+                            <td>
+                                <button class="adicionar-button" id="art1"><i class="fas fa-plus-circle"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Chave Verde</td>
+                            <td>5</td>
+                            <td>
+                                <button class="adicionar-button" id="art2"><i class="fas fa-plus-circle"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">6</th>
+                            <td>Cordas</td>
+                            <td>2</td>
+                            <td>
+                                <button class="adicionar-button" id="art5"><i class="fas fa-plus-circle"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">7</th>
+                            <td>Máscaras</td>
+                            <td>2</td>
+                            <td>
+                                <button class="adicionar-button" id="art6"><i class="fas fa-plus-circle"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">8</th>
+                            <td>Protetor Solar</td>
+                            <td>2</td>
+                            <td>
+                                <button class="adicionar-button" id="art7"><i class="fas fa-plus-circle"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">9</th>
+                            <td>Recordações Várias</td>
+                            <td>1</td>
+                            <td>
+                                <button class="adicionar-button" id="art8"><i class="fas fa-plus-circle"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">10</th>
+                            <td>Garrafa de Água</td>
+                            <td>1</td>
+                            <td>
+                                <button class="adicionar-button" id="art9"><i class="fas fa-plus-circle"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">11</th>
+                            <td>Cozido das Furnas</td>
+                            <td>3</td>
+                            <td>
+                                <button class="adicionar-button" id="art10"><i class="fas fa-plus-circle"></i></button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="tabuleiro text-white" id="tabuleiro">
+                <div class="row">
+                    <div class="col text-center">
+                        <div id="casa48" class="table-unit col" style="position: relative">
+                            <div class="row" style="position: absolute;">
+                                <div id="c48p1" class="col player text-center">
+                                </div>
+                                <div id="c48p2" class="col player text-center">
+                                </div>
+                            </div>
+                            <h4 class="table-unit-number">48</h4>
+                        </div>
+                        <div id="casa49" class="table-unit col" style="position: relative">
+                            <div class="row" style="position: absolute;">
+                                <div id="c49p1" class="col player text-center">
+                                </div>
+                                <div id="c49p2" class="col player text-center">
+                                </div>
+                            </div>
+                            <h4 class="table-unit-number" style="visibility: hidden">49</h4>
+                        </div>
+                        <div id="casa50" class="table-unit col" style="position: relative">
+                            <div class="row" style="position: absolute;">
+                                <div id="c50p1" class="col player text-center">
+                                </div>
+                                <div id="c50p2" class="col player text-center">
+                                </div>
+                            </div>
+                            <h4 class="table-unit-number">50</h4>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div id="casa47" class="table-unit col">
+                            <div class="row" style="position: absolute;">
+                                <div id="c47p1" class="col player text-center">
+                                </div>
+                                <div id="47p2" class="col player text-center">
+                                </div>
+                            </div>
+                            <h4 class="table-unit-number">47</h4>
+                        </div>
+                        <div id="casa46" class="table-unit col">
+                            <div class="row" style="position: absolute;">
+                                <div id="c46p1" class="col player text-center">
+                                </div>
+                                <div id="c46p2" class="col player text-center">
+                                </div>
+                            </div>
+                            <h4 class="table-unit-number">46</h4>
+                        </div>
+                        <div id="casa45" class="table-unit col">
+                            <div class="row" style="position: absolute;">
+                                <div id="c45p1" class="col player text-center">
+                                </div>
+                                <div id="c45p2" class="col player text-center">
+                                </div>
+                            </div>
+                            <h4 class="table-unit-number">45</h4>
+                        </div>
+                        <div id="casa44" class="table-unit col">
+                            <div class="row" style="position: absolute;">
+                                <div id="c44p1" class="col player text-center">
+                                </div>
+                                <div id="c44p2" class="col player text-center">
+                                </div>
+                            </div>
+                            <h4 class="table-unit-number">44</h4>
+                        </div>
+                        <div id="casa43" class="table-unit col">
+                            <div class="row" style="position: absolute;">
+                                <div id="c43p1" class="col player text-center">
+                                </div>
+                                <div id="c43p2" class="col player text-center">
+                                </div>
+                            </div>
+                            <h4 class="table-unit-number">43</h4>
+                        </div>
+                        <div id="casa42" class="table-unit col">
+                            <div class="row" style="position: absolute;">
+                                <div id="c42p1" class="col player text-center">
+                                </div>
+                                <div id="c42p2" class="col player text-center">
+                                </div>
+                            </div>
+                            <h4 class="table-unit-number" style="visibility: hidden">42</h4>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div id="casa36" class="table-unit col">
+                            <div class="row" style="position: absolute;">
+                                <div id="c36p1" class="col player text-center">
+                                </div>
+                                <div id="c36p2" class="col player text-center">
+                                </div>
+                            </div>
+                            <h4 class="table-unit-number">36</h4>
+                        </div>
+                        <div id="casa37" class="table-unit col">
+                            <div class="row" style="position: absolute;">
+                                <div id="c37p1" class="col player text-center">
+                                </div>
+                                <div id="c37p2" class="col player text-center">
+                                </div>
+                            </div>
+                            <h4 class="table-unit-number">37</h4>
+                        </div>
+                        <div id="casa38" class="table-unit col">
+                            <div class="row" style="position: absolute;">
+                                <div id="c38p1" class="col player text-center">
+                                </div>
+                                <div id="c38p2" class="col player text-center">
+                                </div>
+                            </div>
+                            <h4 class="table-unit-number">38</h4>
+                        </div>
+                        <div id="casa39" class="table-unit col">
+                            <div class="row" style="position: absolute;">
+                                <div id="c39p1" class="col player text-center">
+                                </div>
+                                <div id="c39p2" class="col player text-center">
+                                </div>
+                            </div>
+                            <h4 class="table-unit-number">39</h4>
+                        </div>
+                        <div id="casa40" class="table-unit col">
+                            <div class="row" style="position: absolute;">
+                                <div id="c40p1" class="col player text-center">
+                                </div>
+                                <div id="c40p2" class="col player text-center">
+                                </div>
+                            </div>
+                            <h4 class="table-unit-number" style="visibility: hidden">40</h4>
+                        </div>
+                        <div id="casa41" class="table-unit col">
+                            <div class="row" style="position: absolute;">
+                                <div id="c41p1" class="col player text-center">
+                                </div>
+                                <div id="c41p2" class="col player text-center">
+                                </div>
+                            </div>
+                            <h4 class="table-unit-number">41</h4>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div id="casa35" class="table-unit col">
+                            <div class="row" style="position: absolute;">
+                                <div id="c35p1" class="col player text-center">
+                                </div>
+                                <div id="c35p2" class="col player text-center">
+                                </div>
+                            </div>
+                            <h4 class="table-unit-number">35</h4>
+                        </div>
+                        <div id="casa34" class="table-unit col">
+                            <div class="row" style="position: absolute;">
+                                <div id="c34p1" class="col player text-center">
+                                </div>
+                                <div id="c34p2" class="col player text-center">
+                                </div>
+                            </div>
+                            <h4 class="table-unit-number">34</h4>
+                        </div>
+                        <div id="casa33" class="table-unit col">
+                            <div class="row" style="position: absolute;">
+                                <div id="c33p1" class="col player text-center">
+                                </div>
+                                <div id="c33p2" class="col player text-center">
+                                </div>
+                            </div>
+                            <h4 class="table-unit-number" style="visibility: hidden">33</h4>
+                        </div>
+                        <div id="casa32" class="table-unit col">
+                            <div class="row" style="position: absolute;">
+                                <div id="c32p1" class="col player text-center">
+                                </div>
+                                <div id="c32p2" class="col player text-center">
+                                </div>
+                            </div>
+                            <h4 class="table-unit-number">32</h4>
+                        </div>
+                        <div id="casa31" class="table-unit col">
+                            <div class="row" style="position: absolute;">
+                                <div id="c31p1" class="col player text-center">
+                                </div>
+                                <div id="c31p2" class="col player text-center">
+                                </div>
+                            </div>
+                            <h4 class="table-unit-number">31</h4>
+                        </div>
+                        <div id="casa30" class="table-unit col">
+                            <div class="row" style="position: absolute;">
+                                <div id="c30p1" class="col player text-center">
+                                </div>
+                                <div id="c30p2" class="col player text-center">
+                                </div>
+                            </div>
+                            <h4 class="table-unit-number">30</h4>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div id="casa24" class="table-unit col">
+                            <div class="row" style="position: absolute;">
+                                <div id="c24p1" class="col player text-center">
+                                </div>
+                                <div id="c24p2" class="col player text-center">
+                                </div>
+                            </div>
+                            <h4 class="table-unit-number">24</h4>
+                        </div>
+                        <div id="casa25" class="table-unit col">
+                            <div class="row" style="position: absolute;">
+                                <div id="c25p1" class="col player text-center">
+                                </div>
+                                <div id="c25p2" class="col player text-center">
+                                </div>
+                            </div>
+                            <h4 class="table-unit-number" style="visibility: hidden">25</h4>
+                        </div>
+                        <div id="casa26" class="table-unit col">
+                            <div class="row" style="position: absolute;">
+                                <div id="c26p1" class="col player text-center">
+                                </div>
+                                <div id="c26p2" class="col player text-center">
+                                </div>
+                            </div>
+                            <h4 class="table-unit-number">26</h4>
+                        </div>
+                        <div id="casa27" class="table-unit col">
+                            <div class="row" style="position: absolute;">
+                                <div id="c27p1" class="col player text-center">
+                                </div>
+                                <div id="c27p2" class="col player text-center">
+                                </div>
+                            </div>
+                            <h4 class="table-unit-number">27</h4>
+                        </div>
+                        <div id="casa28" class="table-unit col">
+                            <div class="row" style="position: absolute;">
+                                <div id="c28p1" class="col player text-center">
+                                </div>
+                                <div id="c28p2" class="col player text-center">
+                                </div>
+                            </div>
+                            <h4 class="table-unit-number">28</h4>
+                        </div>
+                        <div id="casa29" class="table-unit col">
+                            <div class="row" style="position: absolute;">
+                                <div id="c29p1" class="col player text-center">
+                                </div>
+                                <div id="c29p2" class="col player text-center">
+                                </div>
+                            </div>
+                            <h4 class="table-unit-number">29</h4>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div id="casa23" class="table-unit col">
+                            <div class="row" style="position: absolute;">
+                                <div id="c23p1" class="col player text-center">
+                                </div>
+                                <div id="c23p2" class="col player text-center">
+                                </div>
+                            </div>
+                            <h4 class="table-unit-number">23</h4>
+                        </div>
+                        <div id="casa22" class="table-unit col">
+                            <div class="row" style="position: absolute;">
+                                <div id="c22p1" class="col player text-center">
+                                </div>
+                                <div id="c22p2" class="col player text-center">
+                                </div>
+                            </div>
+                            <h4 class="table-unit-number">22</h4>
+                        </div>
+                        <div id="casa21" class="table-unit col">
+                            <div class="row" style="position: absolute;">
+                                <div id="c21p1" class="col player text-center">
+                                </div>
+                                <div id="c21p2" class="col player text-center">
+                                </div>
+                            </div>
+                            <h4 class="table-unit-number">21</h4>
+                        </div>
+                        <div id="casa20" class="table-unit col">
+                            <div class="row" style="position: absolute;">
+                                <div id="c20p1" class="col player text-center">
+                                </div>
+                                <div id="c20p2" class="col player text-center">
+                                </div>
+                            </div>
+                            <h4 class="table-unit-number">20</h4>
+                        </div>
+                        <div id="casa19" class="table-unit col">
+                            <div class="row" style="position: absolute;">
+                                <div id="c19p1" class="col player text-center">
+                                </div>
+                                <div id="c19p2" class="col player text-center">
+                                </div>
+                            </div>
+                            <h4 class="table-unit-number">19</h4>
+                        </div>
+                        <div id="casa18" class="table-unit col">
+                            <div class="row" style="position: absolute;">
+                                <div id="c18p1" class="col player text-center">
+                                </div>
+                                <div id="c18p2" class="col player text-center">
+                                </div>
+                            </div>
+                            <h4 class="table-unit-number" style="visibility: hidden">18</h4>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div id="casa12" class="table-unit col">
+                            <div class="row" style="position: absolute;">
+                                <div id="c12p1" class="col player text-center">
+                                </div>
+                                <div id="c12p2" class="col player text-center">
+                                </div>
+                            </div>
+                            <h4 class="table-unit-number" style="visibility: hidden">12</h4>
+                        </div>
+                        <div id="casa13" class="table-unit col">
+                            <div class="row" style="position: absolute;">
+                                <div id="c13p1" class="col player text-center">
+                                </div>
+                                <div id="c13p2" class="col player text-center">
+                                </div>
+                            </div>
+                            <h4 class="table-unit-number">13</h4>
+                        </div>
+                        <div id="casa14" class="table-unit col">
+                            <div class="row" style="position: absolute;">
+                                <div id="c14p1" class="col player text-center">
+                                </div>
+                                <div id="c14p2" class="col player text-center">
+                                </div>
+                            </div>
+                            <h4 class="table-unit-number">14</h4>
+                        </div>
+                        <div id="casa15" class="table-unit col">
+                            <div class="row" style="position: absolute;">
+                                <div id="c15p1" class="col player text-center">
+                                </div>
+                                <div id="c15p2" class="col player text-center">
+                                </div>
+                            </div>
+                            <h4 class="table-unit-number">15</h4>
+                        </div>
+                        <div id="casa16" class="table-unit col">
+                            <div class="row" style="position: absolute;">
+                                <div id="c16p1" class="col player text-center">
+                                </div>
+                                <div id="c16p2" class="col player text-center">
+                                </div>
+                            </div>
+                            <h4 class="table-unit-number">16</h4>
+                        </div>
+                        <div id="casa17" class="table-unit col">
+                            <div class="row" style="position: absolute;">
+                                <div id="c17p1" class="col player text-center">
+                                </div>
+                                <div id="c17p2" class="col player text-center">
+                                </div>
+                            </div>
+                            <h4 class="table-unit-number">17</h4>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div id="casa11" class="table-unit col">
+                            <div class="row" style="position: absolute;">
+                                <div id="c11p1" class="col player text-center">
+                                </div>
+                                <div id="c11p2" class="col player text-center">
+                                </div>
+                            </div>
+                            <h4 class="table-unit-number">11</h4>
+                        </div>
+                        <div id="casa10" class="table-unit col">
+                            <div class="row" style="position: absolute;">
+                                <div id="c10p1" class="col player text-center">
+                                </div>
+                                <div id="c10p2" class="col player text-center">
+                                </div>
+                            </div>
+                            <h4 class="table-unit-number">10</h4>
+                        </div>
+                        <div id="casa9" class="table-unit col">
+                            <div class="row" style="position: absolute;">
+                                <div id="c9p1" class="col player text-center">
+                                </div>
+                                <div id="c9p2" class="col player text-center">
+                                </div>
+                            </div>
+                            <h4 class="table-unit-number">9</h4>
+                        </div>
+                        <div id="casa8" class="table-unit col">
+                            <div class="row" style="position: absolute;">
+                                <div id="c8p1" class="col player text-center">
+                                </div>
+                                <div id="c8p2" class="col player text-center">
+                                </div>
+                            </div>
+                            <h4 class="table-unit-number">8</h4>
+                        </div>
+                        <div id="casa7" class="table-unit col">
+                            <div class="row" style="position: absolute;">
+                                <div id="c7p1" class="col player text-center">
+                                </div>
+                                <div id="c7p2" class="col player text-center">
+                                </div>
+                            </div>
+                            <h4 class="table-unit-number">7</h4>
+                        </div>
+                        <div id="casa6" class="table-unit col">
+                            <div class="row" style="position: absolute;">
+                                <div id="c6p1" class="col player text-center">
+                                </div>
+                                <div id="c6p2" class="col player text-center">
+                                </div>
+                            </div>
+                            <h4 class="table-unit-number" style="visibility: hidden">6</h4>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div id="casa0" class="table-unit col">
+                            <div class="row" style="position: absolute;">
+                                <div id="c0p1" class="col player text-center">
+                                </div>
+                                <div id="c0p2" class="col player text-center">
+                                </div>
+                            </div>
+                            <h4 class="table-unit-number" style="visibility: hidden">Início</h4>
+                        </div>
+                        <div id="casa1" class="table-unit col">
+                            <div class="row" style="position: absolute;">
+                                <div id="c1p1" class="col player text-center">
+                                </div>
+                                <div id="c1p2" class="col player text-center">
+                                </div>
+                            </div>
+                            <h4 class="table-unit-number">1</h4>
+                        </div>
+                        <div id="casa2" class="table-unit col">
+                            <div class="row" style="position: absolute;">
+                                <div id="c2p1" class="col player text-center">
+                                </div>
+                                <div id="c2p2" class="col player text-center">
+                                </div>
+                            </div>
+                            <h4 class="table-unit-number">2</h4>
+                        </div>
+                        <div id="casa3" class="table-unit col">
+                            <div class="row" style="position: absolute;">
+                                <div id="c3p1" class="col player text-center">
+                                </div>
+                                <div id="c3p2" class="col player text-center">
+                                </div>
+                            </div>
+                            <h4 class="table-unit-number">3</h4>
+                        </div>
+                        <div id="casa4" class="table-unit col">
+                            <div class="row" style="position: absolute;">
+                                <div id="c4p1" class="col player text-center">
+                                </div>
+                                <div id="c4p2" class="col player text-center">
+                                </div>
+                            </div>
+                            <h4 class="table-unit-number">4</h4>
+                        </div>
+                        <div id="casa5" class="table-unit col">
+                            <div class="row" style="position: absolute;">
+                                <div id="c5p1" class="col player text-center">
+                                </div>
+                                <div id="c5p2" class="col player text-center">
+                                </div>
+                            </div>
+                            <h4 class="table-unit-number">5</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer container text-center text-white">
+                <p>Desenvolvido por: André Sousa, Diogo Figueiredo & Rui Filipe Sousa </p>
+            </div>
+        </div>
+        <div class="col-md-2 text-center">
+            <div class="col time">
+                    <i class="clock far fa-clock"></i>
+                <div class="timer">
+                    <span id="minutes"></span>:<span id="seconds"></span>
+                </div>
+
+            </div>
+            <div class="turn text-center">
+                <p class="player-text">É a tua vez!</p>
+                <div id="turnIcon">
+                </div>
+                <p class="player-text" id="actualPlayer"></p>
+            </div>
+
+            <div class="player-info col text-center">
+                <div class="row">
+                    <div class="col-md-4 icon">
+                        <i class="fa fa-heart menu-button" id="heart"></i>
+                    </div>
+                    <div class="col-md-8 icon-text">
+                        <p id="vidas"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="player-info col text-center">
+                <div class="row">
+                    <div class="col-md-4 icon">
+                        <i class="fa fa-euro menu-button" id="coin"></i>
+                    </div>
+                    <div class="col-md-8">
+                        <p id="moedas"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="player-info col text-center">
+                <div class="row">
+                    <div class="col-md-4 icon">
+                        <i class="fas fa-map menu-button" id="map"></i>
+                    </div>
+                    <div class="col-md-8">
+                        <p id="mapParts"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="inventario col text-center">
+                <div class="row">
+                    <div class="col">
+                        <h4 id="inv-title">Inventário</h4>
+                        <table class="text-center" id="table_inventario">
+                            <tbody id="inv_body">
+                            </tbody>
+                        </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="p.js"></script>
+</body>
+</html>

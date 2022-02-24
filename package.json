@@ -1,0 +1,22 @@
+{
+  "type": "module",
+  "name": "tw2020",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://20172754-uac-pt@bitbucket.org/20172754-uacpt/tw2020.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/20172754-uacpt/tw2020#readme",
+  "description": "",
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-react-app": "^3.1.2"
+  }
+}

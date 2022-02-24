@@ -1,0 +1,397 @@
+body {
+    font-family: 'Merriweather', serif;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background-image: url("../css/img/background.jpg");
+    background-size: cover;
+}
+
+.game {
+    padding-top: 0.5%;
+    color: white;
+
+}
+
+.game .player-text {
+    padding-top: 2%;
+    font-size: 16pt;
+}
+
+.game .game-logo {
+    margin-bottom: 20%;
+}
+.game .game-logo:hover{
+    transform: scale(1.08);
+    transition: ease-in-out 0.3s;
+}
+
+#dado-button:disabled{
+    color: rgba(0,0,0,0.5);
+}
+#imagem-pergunta{
+    border: 5px solid orange;
+}
+
+.perguntas {
+    color: white;
+}
+
+
+.pergunta {
+    padding-top: 5%;
+    background-image: url("../css/img/question.svg");
+    background-repeat: no-repeat;
+    background-position: left;
+}
+
+.pergunta h1 {
+    font-size: 12pt;
+    font-style: italic;
+}
+
+.pergunta #confirm-answer-button {
+    background-color: orange;
+    border: none;
+    color: white;
+}
+
+.time {
+    height: 200px;
+    font-size: 48pt;
+    margin-bottom: 10%;
+    background: rgb(97, 0, 0);
+    background: linear-gradient(45deg, rgba(0,21,69,1) 0%, rgba(0,71,135,1) 100%);
+    border: 5px solid lightseagreen;
+
+}
+
+.menu {
+    margin-bottom: 2%;
+    background: rgb(0,21,69);
+    background: linear-gradient(45deg, rgb(0, 21, 69) 0%, rgb(0, 71, 135) 100%);
+    background-size: cover;
+
+}
+.menu .col-md-4{
+    background: rgb(0,119,134);
+    background: linear-gradient(45deg, rgba(0,119,134,1) 0%, rgba(32,178,170,1) 100%);
+
+}
+.menu .col-md-8{
+    padding-top: 9%;
+    border-right: 5px solid orange;
+}
+
+.menu-button {
+    line-height: 36pt;
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    color: white;
+    font-size: 24pt;
+    padding-top: 20%;
+    padding-bottom: 20%;
+    text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    transition: ease-in-out 1s;
+
+}
+
+.menu-button p {
+    font-size: 36pt;
+    color: white;
+    transition: ease-in-out 1s;
+}
+
+.menu i:hover {
+    transform: scale(1.10);
+    transition: ease-in-out 0.2s;
+
+}
+#music{
+    transition: ease-in-out 0.3s;
+}
+.player-info {
+    margin-bottom: 2%;
+    background: rgb(0,21,69);
+    background: linear-gradient(45deg, rgba(0,21,69,1) 0%, rgba(0,71,135,1) 100%);
+
+}
+
+.player-info .col-md-4{
+    background: rgb(0,119,134);
+    background: linear-gradient(45deg, rgba(0,119,134,1) 0%, rgba(32,178,170,1) 100%);
+    padding: 1%;
+}
+.player-info .col-md-8{
+    border-right: 5px solid orange;
+    padding-top: 9%;
+}
+.player-info i{
+    font-size: 24pt;
+    color: white;
+}
+.player-name{
+    background-color: orange;
+}
+
+
+.tabuleiro {
+    margin-top: 2%;
+    width: 100%;
+    background: url("../css/img/table-background.jpg");
+    background-size: cover;
+    background-position: center;
+    padding: 2%;
+    border: 5px solid #ffa500;
+    box-shadow: inset 0 0 50px #000000;
+
+}
+
+.table-unit {
+    background: darkred;
+    background: url("../css/img/casa.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    text-align: center;
+    height: 55px;
+    width: 100%;
+    margin-bottom: 40%;
+
+}
+.table-unit:hover{
+    transform: translateY(10px);
+    transition: ease-in-out 0.2s;
+}
+#pico:hover{
+
+}
+
+.table-unit-number {
+    font-size: 16pt;
+    line-height: 32pt;
+}
+
+.loja {
+    padding-top: 2%;
+    padding-bottom: 2%;
+    visibility: hidden;
+    display: none;
+    margin-top: 2%;
+    width: 100%;
+    background: url("../css/img/table-background.jpg");
+    background-size: cover;
+    background-position: center;
+    border: 5px solid orange;
+    border-radius: 0px 50px 0px 50px;
+    box-shadow: inset 0 0 50px #000000;
+
+}
+.loja .container{
+    width: 70%;
+}
+
+.loja ul {
+    width: 80%;
+}
+
+.loja li {
+    list-style: none;
+}
+
+.loja #close-button {
+    border: none;
+    background: transparent;
+    color: lightseagreen;
+    font-size: 24pt;
+    color: orange;
+}
+.adicionar-button{
+    border: none;
+    background: transparent;
+    padding: 1% 2% 1% 2%;
+    color: mediumspringgreen;
+    font-size: 14pt;
+}
+
+.adicionar-button:disabled{
+    color: rgba(255,255,255,0.4);
+}
+#compra-button{
+    border: none;
+    background: orange;
+    padding: 1% 2% 1% 2%;
+    color: white;
+}
+#clock {
+    font-size: 20pt;
+}
+
+
+.inventario{
+    height: auto;
+    background-color: #005cbf;
+    border: 5px solid lightseagreen;
+    background: rgb(0,21,69);
+    background: linear-gradient(45deg, rgba(0,21,69,1) 0%, rgba(0,71,135,1) 100%);
+}
+
+.footer {
+    width: 100%;
+    background-image: url("../css/img/footer.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 40px;
+    padding-top: 0.65%;
+    margin-top: -1.77%;
+}
+
+
+#casa0 {
+    background-image: url("../css/img/casa0.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    background-size: contain;
+    color: white;
+    font-weight: 700;
+    height: 80px;
+    width: 100%;
+}
+
+#casa6 {
+    background-image: url("../css/img/casa6.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    background-size: contain;
+    color: white;
+    font-weight: 700;
+    height: 80px;
+    width: 100%;
+}
+
+#casa12 {
+    background-image: url("../css/img/casa12.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    background-size: contain;
+    color: white;
+    font-weight: 700;
+    height: 80px;
+    width: 100%;
+
+}
+
+#casa12 i {
+    font-size: 24pt;
+}
+
+#casa18 {
+    background-image: url("../css/img/casa18.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    background-size: contain;
+    color: white;
+    font-weight: 700;
+    height: 80px;
+    width: 100%;
+}
+
+#casa25 {
+    background-image: url("../css/img/casa25.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    background-size: contain;
+    color: black;
+    font-weight: 700;
+    width: 100%;
+    height: 80px;
+}
+
+#casa25 i {
+    font-size: 24pt;
+
+}
+
+#casa33 {
+    background-image: url("../css/img/casa33.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    background-size: contain;
+    color: white;
+    font-weight: 700;
+    width: 100%;
+    height: 80px;
+}
+
+#casa39 i {
+    font-size: 24pt;
+
+}
+
+#casa40 {
+    background-image: url("../css/img/casa40.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    background-size: contain;
+    color: white;
+    font-weight: 700;
+    height: 80px;
+    width: 100%;
+
+}
+
+#casa42 {
+    background-image: url("../css/img/casa42.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    background-size: contain;
+    color: white;
+    font-weight: 700;
+    height: 80px;
+    width: 100%;
+}
+
+#casa49 {
+    background-image: url("../css/img/casa49.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    background-size: contain;
+    color: white;
+    font-weight: 700;
+    height: 80px;
+    width: 100%;
+}
+
+.player1{
+    color:orange;
+    font-size: 20pt;
+    text-shadow: 2px 2px 10px black;
+}
+.player2{
+    color:red;
+    font-size: 20pt;
+    text-shadow: 0px 0px 10px black;
+}
+
+#areaPergunta{
+    width: 70%;
+    margin-left: 15%;
+}
+
+#table_inventario{
+    width: 100%;
+
+}
+#inv-title{
+    padding-top: 2.5%;
+    padding-bottom: 2.5%;
+}
+
